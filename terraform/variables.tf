@@ -11,7 +11,7 @@ variable "ecs_cidr" {
 
 variable "app_name" {
   type    = string
-  default = "nipo"
+  default = "nipo-app"
 }
 
 variable "app_environment" {
@@ -41,4 +41,9 @@ variable "app_image" {
 variable "app_port" {
   default     = "8080"
   description = "portexposed on the docker image"
+}
+
+variable "github_token" {
+  type      = string
+  sensitive = true
 }
