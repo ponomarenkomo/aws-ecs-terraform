@@ -1,84 +1,39 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:145212409650:task-definition/nipo-task:4",
     "containerDefinitions": [
         {
-            "name": "nipo-dev-container",
-            "image": "145212409650.dkr.ecr.us-east-1.amazonaws.com/nipo-dev-ecr:latest",
+            "name": "nipo-app-dev-container",
+            "image": "145212409650.dkr.ecr.us-east-1.amazonaws.com/nipo-app-dev-ecr:latest",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
                 {
-                    "containerPort": 8080,
-                    "hostPort": 8080,
+                    "containerPort": 80,
+                    "hostPort": 80,
                     "protocol": "tcp"
                 }
             ],
-            "essential": true,
-            "environment": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "nipo-dev-logs",
-                    "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "nipo-dev"
-                }
-            }
+            "essential": true
         }
     ],
-    "family": "nipo-task",
-    "taskRoleArn": "arn:aws:iam::145212409650:role/nipo-execution-task-role",
-    "executionRoleArn": "arn:aws:iam::145212409650:role/nipo-execution-task-role",
-    "networkMode": "awsvpc",
-    "revision": 4,
+    "family": "nipo-app-task",
+    "taskRoleArn": "arn:aws:iam::145212409650:role/nipo-app-execution-task-role",
+    "executionRoleArn": "arn:aws:iam::145212409650:role/nipo-app-execution-task-role",
     "volumes": [],
-    "status": "ACTIVE",
     "requiresAttributes": [
         {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2",
-        "FARGATE"
+        "EXTERNAL",
+        "EC2"
     ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "cpu": "256",
-    "memory": "512",
-    "registeredAt": "2023-03-05T08:21:40.229Z",
-    "tags": [
-        {
-            "key": "Environment",
-            "value": "dev"
-        },
-        {
-            "key": "Name",
-            "value": "nipo-ecs-td"
-        }
-    ]
+    "tags": []
 }
