@@ -18,6 +18,7 @@
     "family": "nipo-app-task",
     "taskRoleArn": "arn:aws:iam::145212409650:role/nipo-app-execution-task-role",
     "executionRoleArn": "arn:aws:iam::145212409650:role/nipo-app-execution-task-role",
+    "networkMode": "awsvpc",
     "volumes": [],
     "requiresAttributes": [
         {
