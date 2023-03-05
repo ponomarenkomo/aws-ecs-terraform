@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
         {
-            "name": "nipo-app-dev-ecr",
+            "name": "nipo-app-dev-container",
             "image": "145212409650.dkr.ecr.us-east-1.amazonaws.com/nipo-app-dev-ecr:latest",
             "cpu": 256,
             "memory": 512,
