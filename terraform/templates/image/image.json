@@ -1,23 +1,27 @@
-[
-    {
-        "name": "petclinic-demo",
-        "image": "${app_image}",
-        "cpu": "${fargate_cpu}",
-        "memory": "${fargate_memory}",
-        "networkMode": "awsvpc",
-        "logConfiguration": {
-            "logDriver": "awslogs",
-            "options": {
-                "awslogs-group": "${aws_cloudwatch_log_group}",
-                "awslogs-region": "${aws_region}",
-                "awslogs-stream-prefix": "${app_name}-${app_environment}"
-            }
-        },
-        "portMappings": [
+{
+    "containerDefinitions": [
+        [
             {
-                "containerPort": "${app_port}",
-                "hostPort": "${app_port}"
+                "name": "petclinic-demo",
+                "image": "${app_image}",
+                "cpu": "${fargate_cpu}",
+                "memory": "${fargate_memory}",
+                "networkMode": "awsvpc",
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-group": "${aws_cloudwatch_log_group}",
+                        "awslogs-region": "${aws_region}",
+                        "awslogs-stream-prefix": "${app_name}-${app_environment}"
+                    }
+                },
+                "portMappings": [
+                    {
+                        "containerPort": "${app_port}",
+                        "hostPort": "${app_port}"
+                    }
+                ]
             }
         ]
-    }
-]
+    ]
+}

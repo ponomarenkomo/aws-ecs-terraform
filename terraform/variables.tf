@@ -11,7 +11,7 @@ variable "ecs_cidr" {
 
 variable "app_name" {
   type    = string
-  default = "nipo-app"
+  default = "nipo"
 }
 
 variable "app_environment" {
@@ -25,20 +25,21 @@ variable "aws_region" {
 }
 
 variable "fargate_cpu" {
-  default = 256
-  type    = number
+  default = "256"
+  type    = string
 }
 
 variable "fargate_memory" {
-  default = 512
-  type    = number
+  default = "512"
+  type    = string
 }
 
-variable "app_image" {
-  description = "docker image to run in this ECS cluster"
-}
+# variable "app_image" {
+#   description = "docker image to run in this ECS cluster"
+# }
 
 variable "app_port" {
+  type        = string
   default     = "8080"
   description = "portexposed on the docker image"
 }

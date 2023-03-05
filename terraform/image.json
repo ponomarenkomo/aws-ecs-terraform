@@ -1,0 +1,33 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "petclinic-demo",
+            "image": "145212409650.dkr.ecr.us-east-1.amazonaws.com/nipo-dev-ecr:latest",
+            "cpu": 256,
+            "memory": 512,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "nipo-dev-logs",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "nipo-dev"
+                }
+            }
+        }
+    ],
+    "family": "nipo-task",
+    "taskRoleArn": "arn:aws:iam::145212409650:role/nipo-execution-task-role",
+    "executionRoleArn": "arn:aws:iam::145212409650:role/nipo-execution-task-role",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ]
+}
