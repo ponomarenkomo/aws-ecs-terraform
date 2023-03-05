@@ -33,7 +33,10 @@
     "placementConstraints": [],
     "compatibilities": [
         "EXTERNAL",
-        "EC2"
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
     ],
     "tags": []
 }
